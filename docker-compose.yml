@@ -30,13 +30,11 @@ services:
     environment:
       - TZ=${TZ}
   db:
-    build:
-      context: ./docker/mysql
-      args:
-        - TZ=${TZ}
+    image: mysql:8.0
     volumes:
       - db-store:/var/lib/mysql
       - ./logs:/var/log/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_USER=${DB_USER}
