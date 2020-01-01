@@ -14,8 +14,8 @@ class AddMessageIdBalloonsTable extends Migration
     public function up()
     {
         Schema::table('balloons', function (Blueprint $table) {
-            $table->integer('message_id')->unsigned();
-            $table->foreign('message_id')
+            $table->integer('messages_id')->unsigned();
+            $table->foreign('messages_id')
                 ->references('id')->on('messages')
                 ->onDelete('cascade');
         });
@@ -29,7 +29,7 @@ class AddMessageIdBalloonsTable extends Migration
     public function down()
     {
         Schema::table('balloons', function (Blueprint $table) {
-            $table->dropForeign('balloons_message_id_foreign');
+            $table->dropForeign('balloons_messages_id_foreign');
         });
     }
 }
