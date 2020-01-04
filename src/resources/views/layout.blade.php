@@ -23,7 +23,7 @@
   </ul>
 </nav>
 <div class="container-fluid">
-  <div class="row">
+  <div class="row wrapper">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <ul class="nav flex-column">
         <li class="nav-item"><a href="#" class="nav-link active"><i class="far fa-sticky-note"></i> メッセージ一覧</a></li>

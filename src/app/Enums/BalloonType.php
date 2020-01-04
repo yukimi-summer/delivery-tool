@@ -4,6 +4,7 @@ namespace App\Enums;
 
 use App\Balloons;
 use BenSampo\Enum\Enum;
+use Exception;
 
 /**
  * @method static static Text()
@@ -22,11 +23,24 @@ final class BalloonType extends Enum
             case self::Image:
                 return '画像';
             default:
-                return self::getValue($value);
+                throw new Exception("Illegal argument passed. value=[{$value}]");
         }
     }
 
-    public static function getDetails(Balloons $balloon) {
+    public static function getValue($value): int
+    {
+        switch ($value) {
+            case 'テキスト':
+                return self::Text;
+            case '画像':
+                return self::Image;
+            default:
+                throw new Exception("Illegal argument passed. value=[{$value}]");
+        }
+    }
+
+    public static function getDetails(Balloons $balloon)
+    {
         switch ($balloon->type) {
             case self::Text:
                 return $balloon->text;

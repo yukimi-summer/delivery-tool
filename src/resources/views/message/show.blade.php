@@ -9,11 +9,11 @@
     <div class="dropdown">
         <a href="#" class="btn btn-outline-primary dropdown-toggle" role="button" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">新規作成</a>
         <div class="dropdown-menu shadow">
-            <a class="dropdown-item">テキスト</a>
-            <a class="dropdown-item">画像</a>
-            <a class="dropdown-item">動画</a>
-            <a class="dropdown-item">音声</a>
-            <a class="dropdown-item">イメージマップ</a>
+            <a class="dropdown-item" href="/message/{{ $message->id }}/create?type=text">テキスト</a>
+            <a class="dropdown-item" href="/message/{{ $message->id }}/create?type=image">画像</a>
+            <a class="dropdown-item" href="/message/{{ $message->id }}/create?type=video">動画</a>
+            <a class="dropdown-item" href="/message/{{ $message->id }}/create?type=audio">音声</a>
+            <a class="dropdown-item" href="/message/{{ $message->id }}/create?type=imagemap">イメージマップ</a>
         </div>
     </div>
 </div>
@@ -33,14 +33,14 @@
             @foreach($message->balloons as $balloon)
             <tr>
                 <th class="align-middle" scope="row">
-                    <a href="/balloon/{{ $balloon->id }}/edit">{{ $balloon->id }}</a>
+                    <a href="/message/{{ $message->id }}/{{ $balloon->id }}/edit">{{ $balloon->id }}</a>
                 </th>
                 <td class="align-middle">{{ \App\Enums\BalloonType::getDescription($balloon->type) }}</td>
                 <td class="align-middle">{!! \App\Enums\BalloonType::getDetails($balloon) !!}</td>
                 <td class="align-middle">{{ $balloon->created_at }}</td>
                 <td class="align-middle">{{ $balloon->updated_at }}</td>
                 <td class="align-middle">
-                    <form class="mb-0" action="/balloon/{{ $balloon->id }}" method="post">
+                    <form class="mb-0" action="/message/{{ $message->id }}/{{ $balloon->id }}" method="post">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-xs btn-danger" aria-label="Left Align"><i class="fas fa-trash"></i></button>
