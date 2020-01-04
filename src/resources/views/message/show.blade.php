@@ -18,7 +18,7 @@
     </div>
 </div>
 <div class="mt-3">
-    <table class="table text-center">
+    <table class="table table-hover table-responsive text-center">
         <thead class="text-primary">
             <tr>
                 <th class="text-center">ID</th>

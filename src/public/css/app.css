@@ -20,9 +20,7 @@ div.balloon-image-preview img {
   min-height: 100%;
 }
 
-@media (min-width: 768px) {
-  [role=main] {
-    padding-top: 92px;
-  }
+[role=main] {
+  padding-top: 92px;
 }
 
